@@ -1,0 +1,3 @@
+given an array of positive integers, print all subarrays that have a certain sum.
+
+What if there are positive and negative numbers?
