@@ -18,7 +18,23 @@ public class Conversion {
         }
         return result;
     }
+
+    static int numberOfFlips2(int a, int b) {
+        int result = 0;
+        for (int v = a^b; v != 0; v = v >> 1) {
+            result += (v & 1);
+        }
+        return result;
+    }
+
+    static int numberOfFlips3(int a, int b) {
+        int result = 0;
+        for (int v = a^b; v != 0; v = v & (v - 1)) {
+            result++;
+        }
+        return result;
+    }
     public static void main(String[] args) {
-        System.out.println(numberOfFlips(29, 15));
+        System.out.println(numberOfFlips3(29, 15));
     }
 }

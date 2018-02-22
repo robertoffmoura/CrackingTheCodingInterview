@@ -54,5 +54,6 @@ public class Bit {
         printByte(switchBit(b, 3));
         printByte(switchBit2(b, 4));
         printByte(switchBit2(b, 3));
+        printByte(-1);
     }
 }
