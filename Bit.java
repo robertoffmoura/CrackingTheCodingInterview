@@ -1,7 +1,7 @@
 public class Bit {
     public static void printByte(int b) {
-        int mask = (1 << Integer.SIZE - 1);
-        for (int i=0; i<Integer.SIZE; i++) {
+        int mask = ~(~0 >>> 1);
+        while (mask != 0) {
             System.out.print((b & (mask)) != 0 ? 1 : 0);
             mask >>>= 1;
         }

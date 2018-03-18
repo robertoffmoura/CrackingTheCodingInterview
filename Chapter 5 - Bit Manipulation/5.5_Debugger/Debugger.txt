@@ -1,0 +1,10 @@
+/*
+Explain what the following code does: ((n & (n-1)) == 0).
+*/
+
+It essentially checks if n is a power of two
+
+Let's say the first bit in n whose value is 1 is at position p.
+n-1 has the bit at position p switched to 0 and all bits to the right switched to 1.
+n & (n-1) switches the bit at position p and all bits to the right to 0.
+if the result is zero, then the bit at position p was the only one with the value of 1, and so n is even. Else, there is a bit at a position to the left of p whose value is also 1, which means p is not a power of two, since powers of two only have one bit with value 1.
