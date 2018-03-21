@@ -27,9 +27,9 @@ public class PaintFill {
         if (image[i][j] == newColor) return;
         if (image[i][j] != originalColor) return;
         image[i][j] = newColor;
-        int[] deltaI = {0, -1, -1, -1,  0,  1, 1, 1};
-        int[] deltaJ = {1,  1,  0, -1, -1, -1, 0, 1};
-        for (int k=0; k<8; k++) {
+        int[] deltaI = {0, -1,  0, 1};
+        int[] deltaJ = {1,  0, -1, 0};
+        for (int k=0; k<4; k++) {
             fill(i + deltaI[k], j + deltaJ[k], originalColor, newColor, image);
         }
     }
