@@ -44,6 +44,22 @@ public class PowerSet {
         return subSetsSoFar;
     }
 
+    static ArrayList<ArrayList<Integer>> subSets3(ArrayList<Integer> set) {//Book's solution
+        ArrayList<ArrayList<Integer>> subSetsSoFar = new ArrayList<ArrayList<Integer>>();
+        int length = set.size();
+        int max = (1 << length);
+        for (int i=0; i<max; i++) {
+            ArrayList<Integer> subSet = new ArrayList<Integer>();
+            int b = 1;
+            for (int j=0; j<length; j++) {
+                if ((b & i) != 0) subSet.add(set.get(j));
+                b <<= 1;
+            }
+            subSetsSoFar.add(subSet);
+        }
+        return subSetsSoFar;
+    }
+
     static void printSet(ArrayList<Integer> set) {
         for (int i=0; i<set.size(); i++) {
             System.out.print(set.get(i) + " ");
