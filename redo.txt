@@ -1,0 +1,5 @@
+BestLine
+SubSort
+ContiguousSequence
+SumSwap
+Langton's Ant
