@@ -1,5 +1,4 @@
-BestLine
-SubSort
 ContiguousSequence
-SumSwap
-Langton's Ant
+shuffle
+MissingNumber
+RandomSet

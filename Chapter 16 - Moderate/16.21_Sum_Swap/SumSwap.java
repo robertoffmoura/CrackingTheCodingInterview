@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import java.util.HashSet;
 
 /*
 Given two arrays of integers, find a pair of values (one value from each array) that you can swap to give the two arrays the same sum.
@@ -40,6 +41,21 @@ public class SumSwap {
         return new Pair(-1, -1);
     }
 
+    static Pair swapSum2(int[] a, int[] b) { //Book's Solution
+        int sumA = 0;
+        int sumB = 0;
+        for (int i=0; i<a.length; i++) sumA += a[i];
+        for (int i=0; i<b.length; i++) sumB += b[i];
+        if (sumA%2 != sumB%2) return new Pair(-1, -1);
+        int diff = (sumB - sumA)/2;
+        HashSet<Integer> hash = new HashSet<Integer>();
+        for (int i=0; i<a.length; i++) hash.add(a[i]);
+        for (int i=0; i<b.length; i++) {
+            if (hash.contains(b[i] - diff)) return new Pair(b[i] - diff, b[i]);
+        }
+        return new Pair(-1, -1);
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int aLength = sc.nextInt();
@@ -52,6 +68,6 @@ public class SumSwap {
         for (int i=0; i<bLength; i++) {
             b[i] = sc.nextInt();
         }
-        System.out.println(swapSum(a, b));
+        System.out.println(swapSum2(a, b));
     }
 }
