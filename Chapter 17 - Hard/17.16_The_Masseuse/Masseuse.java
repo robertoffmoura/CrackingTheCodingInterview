@@ -23,6 +23,19 @@ public class Masseuse {
         return memory[i];
     }
 
+    static int bestSum2(int[] array) {// Book's solution
+        int oneAway = 0;
+        int twoAway = 0;
+        for (int i=array.length-1; i>=0; i--) {
+            int with = array[i] + twoAway;
+            int without = oneAway;
+            int current = with > without ? with : without;
+            twoAway = oneAway;
+            oneAway = current;
+        }
+        return oneAway;
+    }
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
