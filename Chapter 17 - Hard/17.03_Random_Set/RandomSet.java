@@ -1,27 +1,35 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/*
+Write a method to randomly generate a set of m integers from an array of size n. Each element must have an equal probability of being chosen.
+*/
+
 public class RandomSet {
-    static int[] subset(int[] set, int m) {//No repetitions O(nm)
+    static int[] subset(int[] set, int m) {// No repetitions O(n)
         int[] result = new int[m];
         int n = set.length;
-        ArrayList<Integer> setList = new ArrayList<Integer>();
+        int[] setCopy = new int[n];
         for (int i=0; i<n; i++) {
-            setList.add(set[i]);
+            setCopy[i] = set[i];
         }
 
         for (int i=0; i<m; i++) {
+			// Get random element from range, swap with last element, decrease range.
             int r = (int) (Math.random()*(n-i));
-            result[i] = setList.remove(r);
+			int temp = setCopy[r];
+			setCopy[r] = setCopy[n-i-1];
+			setCopy[n-i-1] = temp;
+            result[i] = temp;
         }
         return result;
     }
 
-    static int[] subset2(int[] set, int m) {//Repetitions allowed O(m)
+    static int[] subset2(int[] set, int m) {// Repetitions allowed O(m)
         int[] result = new int[m];
         int n = set.length;
         for (int i=0; i<m; i++) {
-            int r = (int) (Math.random()*(n-i));
+            int r = (int) (Math.random()*n);
             result[i] = set[r];
         }
         return result;
